@@ -19,4 +19,3 @@ if __name__ == '__main__':
                     f_text = s.read()
                     if sentence in f_text:
                         print(f'{sentence}{f_text[f_text.rfind(sentence)+len(sentence)]}')
-        print(f_text)
