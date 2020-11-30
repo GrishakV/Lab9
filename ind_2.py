@@ -11,6 +11,7 @@
 from datetime import date
 import sys
 import json
+import xml.etree.ElementTree as ET
 
 if __name__ == '__main__':
     people = []
@@ -102,14 +103,20 @@ if __name__ == '__main__':
         elif command.startswith('load'):
             parts = command.split(' ', maxsplit=1)
 
-            with open(parts[1], 'r') as f:
-                workers = json.load(f)
+            if 'xml' in parts[1]:
+                print('здесь должна быть магия')
+            elif 'json' in parts[1]:
+                with open(parts[1], 'r') as f:
+                    people = json.load(f)
 
         elif command.startswith('save'):
             parts = command.split(' ', maxsplit=1)
 
-            with open(parts[1], 'w')as f:
-                json.dump(workers, f)
+            if 'xml' in parts[1]:
+                print('здесь должна быть магия')
+            elif 'json' in parts[1]:
+                with open(parts[1], 'w')as f:
+                    json.dump(people, f)
 
         elif command == 'help':
             print("Список команд:\n")
