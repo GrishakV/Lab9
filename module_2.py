@@ -75,17 +75,17 @@ if __name__ == '__main__':
             if count == 0:
                 print("Работники с заданным стажем не найдены")
 
-        elif command == 'load':
+        elif command.startswith('load'):
             parts = command.split(' ', maxsplit=1)
 
             with open(parts[1], 'r') as f:
                 workers = json.load(f)
 
-        elif command == 'save':
+        elif command.startswith('save'):
             parts = command.split(' ', maxsplit=1)
 
-            with open(parts[1], 'w'):
-                workers = json.dump(workers, f)
+            with open(parts[1], 'w')as f:
+                json.dump(workers, f)
 
         elif command == 'help':
             print("Список команд:\n")
