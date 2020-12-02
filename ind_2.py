@@ -100,7 +100,7 @@ if __name__ == '__main__':
             if count == 0:
                 print(f"Именинников в {month} месяце нетю :(")
 
-        elif command.startswith('load'):
+        elif command.startswith('load '):
             parts = command.split(' ', maxsplit=1)
 
             if 'xml' in parts[1]:
@@ -109,7 +109,7 @@ if __name__ == '__main__':
                 with open(parts[1], 'r') as f:
                     people = json.load(f)
 
-        elif command.startswith('save'):
+        elif command.startswith('save '):
             parts = command.split(' ', maxsplit=1)
 
             if 'xml' in parts[1]:
@@ -123,6 +123,8 @@ if __name__ == '__main__':
             print("add - добавить человека;")
             print("list - вывести список людей;")
             print("select <месяц рождения> - дни рождения в текущем месяце;")
+            print("load <имя файла> - загрузить данные из файла;")
+            print("save <имя файла> - сохранить данные в файл;")
             print("help - отобразить справку;")
             print("exit - завершить работу с программой.")
 
